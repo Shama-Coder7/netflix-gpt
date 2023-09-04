@@ -1,16 +1,15 @@
 import React, { useState, useRef } from 'react';
 import Header from './Header';
-import { useNavigate } from 'react-router-dom';
 import { checkValidateData } from '../utils/validate';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { NETFLIX_BACKGROUND, USER_AVATAR } from '../utils/constants';
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
-  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -51,7 +50,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current?.value,
-            photoURL: 'https://avatars.githubusercontent.com/u/85455446?v=4',
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -62,8 +61,8 @@ const Login = () => {
                   displayName: displayName,
                   photoURL: photoURL,
                 })
-              )
-              navigate('/browse');
+              );
+              // navigate('/browse');
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -85,8 +84,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate('/browse');
+          // console.log(user);
+          // navigate('/browse');
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -99,10 +98,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/64774cd8-5c3a-4823-a0bb-1610d6971bd4/IN-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="netflix-background"
-        />
+        <img src={NETFLIX_BACKGROUND} alt="netflix-background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
@@ -140,7 +136,7 @@ const Login = () => {
         >
           {isSignIn ? 'Sign In' : 'Sign Up'}
         </button>
-        <p className="py-1 md:py-2" onClick={handletoggleForm}>
+        <p className="py-1 md:py-2 cursor-pointer" onClick={handletoggleForm}>
           {isSignIn
             ? 'New to Netflix? Sign Up Now'
             : 'Already Registered! Sign In Now'}

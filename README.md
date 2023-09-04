@@ -1,9 +1,9 @@
 # Netflix GPT
 
--Create React App
+- Create React App
 - Configured Tailwind CSS
 - Header
-- Routing of Aoo
+- Routing of App
 - Login Form
 - SignUp Form
 - Form Validation
@@ -15,6 +15,11 @@
 - Created Redux Store with userSlice
 - Implemented SignOut
 - Updated Profile
+- BugFix: SignUp user displayName and profile picture update
+- BugFix: If the user is not logged in Redirect /browse to Login Page and vice-versa
+- Unsubscribed to the onAuthStateChanged callback.
+- Add HardCoded values to the constants file
+
 - Redirect Pages
 - Fetch from TMDB Movies
 
