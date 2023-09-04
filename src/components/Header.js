@@ -33,7 +33,7 @@ const Header = () => {
         );
         navigate('/browse');
       } else {
-        //if user signout then this will be executed
+        //if user signOut then this will be executed
         dispatch(removeUser());
         navigate('/');
       }
