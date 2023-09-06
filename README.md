@@ -23,6 +23,19 @@
 - Redirect Pages
 - Fetch from TMDB Movies
 
+- Get Data from TMDB now playing movies
+
+- Custom hook for now playing movies
+- create a movie slice
+- update store with movies Data
+- Planning for mainContainer and secondary container
+- fetch data for trailer video
+- Update store with trailer video data
+- Embedded the youtube video and make it autoplay and mute
+- Added Tailwind classes to make it look awesome.
+
+
+
 # Features
 
 - Login/SignUp
