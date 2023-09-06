@@ -34,7 +34,14 @@
 - Embedded the youtube video and make it autoplay and mute
 - Added Tailwind classes to make it look awesome.
 
-
+- Build secondary Component
+- Build Movie List
+- Build Movoe Card
+- TMDB Image Cdn Url
+- Made the Browse page amazing with Tailwind CSS
+- usePopularMovies Custom hooks
+- useTopRatedMovies Custom hooks
+- useUpcomingMovies Custom hooks
 
 # Features
 

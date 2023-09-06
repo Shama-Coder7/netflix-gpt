@@ -19,7 +19,7 @@ const useNowPlayingMovies = () => {
 
     const json = await data.json();
     // console.log(json.results);
-    dispatch(addNowPlayingMovies(json.results));
+    dispatch(addNowPlayingMovies(json.results));  // setting all the movies which are stored on pur movie slice
   };
 
   getNowPlayingMovies();
