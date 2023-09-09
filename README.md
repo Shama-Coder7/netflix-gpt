@@ -43,6 +43,12 @@
 - useTopRatedMovies Custom hooks
 - useUpcomingMovies Custom hooks
 
+- GPT Search Feature
+- GPT Search Page
+- GPT Search Bar
+- ** Multi Language Feature *
+
+
 # Features
 
 - Login/SignUp
