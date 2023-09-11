@@ -58,7 +58,7 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <div className="absolute w-screen px-4 md:px-8 py-2 md:py-4 bg-gradient-to-b z-10 flex justify-between">
+    <div className="max-w-full absolute w-screen px-4 md:px-8 py-2 md:py-4 bg-gradient-to-b z-10 flex justify-between">
       <img className="w-32 md:w-44" src={LOGO} alt="netflix-logo" />
       {user && (
         <div className="flex p-2">
@@ -88,7 +88,7 @@ const Header = () => {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           />
           {isDropdownOpen && (
-            <div className="absolute top-10 right-10 bg-red-700 border rounded p-1">
+            <div className="absolute top-20 right-5 bg-red-700 border rounded p-1">
               <button
                 className="font-bold text-white p-1"
                 onClick={handleSignOut}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { API_OPTIONS } from '../utils/constants';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTrailerVideo } from '../utils/moviesSlice';
 
 const useMovieTrailer = (movieId) => {
@@ -14,9 +14,7 @@ const useMovieTrailer = (movieId) => {
   // -> if we use redux then no need to create state variable
   // -> when you made an api call and it return me some video
 
-  useEffect(() => {
-    getMovieVideo();
-  }, []);
+  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
 
   const getMovieVideo = async () => {
     const data = await fetch(
@@ -41,6 +39,9 @@ const useMovieTrailer = (movieId) => {
 
     dispatch(addTrailerVideo(trailer));
   };
+  useEffect(() => {
+    !trailerVideo && getMovieVideo();
+  }, []);
 };
 
 export default useMovieTrailer;

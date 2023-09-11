@@ -8,8 +8,8 @@ const MainContainer = () => {
 
   if (movies === null) return; // if movies is not present then return null
 
-  const mainMovie = movies[2];
-  // console.log(mainMovie);
+  const mainMovie = movies[4];
+  console.log(mainMovie);
 
   const { original_title, overview, id } = mainMovie;
 

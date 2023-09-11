@@ -30,11 +30,11 @@ const Login = () => {
       name.current?.value
     );
     setErrorMessage(message);
-    console.log('main', message);
+    // console.log('main', message);
 
-    console.log(name.current?.value);
-    console.log(email.current?.value);
-    console.log(password.current?.value);
+    // console.log(name.current?.value);
+    // console.log(email.current?.value);
+    // console.log(password.current?.value);
 
     if (message) return;
 
@@ -68,7 +68,7 @@ const Login = () => {
               setErrorMessage(error.message);
             });
 
-          console.log(user);
+          // console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
