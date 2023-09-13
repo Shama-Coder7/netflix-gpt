@@ -58,10 +58,14 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <div className="max-w-full absolute w-screen px-4 md:px-8 py-2 md:py-4 bg-gradient-to-b z-10 flex justify-between">
-      <img className="w-32 md:w-44" src={LOGO} alt="netflix-logo" />
+    <div className="max-w-full absolute w-screen px-4 md:px-8 py-2 md:py-4 bg-gradient-to-b z-10 flex  flex-col md:flex-row justify-between">
+      <img
+        className="w-32 md:w-44 mx-auto md:mx-0"
+        src={LOGO}
+        alt="netflix-logo"
+      />
       {user && (
-        <div className="flex p-2">
+        <div className="flex p-2 justify-between">
           {showGptSearch && (
             <select
               className="py-1 px-6 m-2 my-3 rounded-lg bg-gray-900 text-white"
@@ -81,16 +85,16 @@ const Header = () => {
             {showGptSearch ? 'HomePage' : 'GPTSearch'}
           </button>
           <img
-            className="h-8 m-4"
+            className="h-6 m-2 md:h-8 m-4"
             alt="usericon"
             // src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
             src={user.photoURL}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           />
           {isDropdownOpen && (
-            <div className="absolute top-20 right-5 bg-red-700 border rounded p-1">
+            <div className="absolute top-28 right-2 md:top-20 md:right-5 bg-red-700 border rounded m-1 p-0 md:p-1">
               <button
-                className="font-bold text-white p-1"
+                className="font-bold text-white p-0 md:p-1"
                 onClick={handleSignOut}
               >
                 Sign Out

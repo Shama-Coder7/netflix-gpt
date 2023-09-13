@@ -37,16 +37,8 @@ const GPTSearchInput = () => {
       ' only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya ';
 
     const gptResults = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      // max_tokens: 512,
-      // temperature: 0,
       messages: [{ role: 'user', content: gptQuery }],
-
-      temperature: 1,
-      max_tokens: 256,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
+      model: 'gpt-3.5-turbo',
     });
 
     if (!gptResults.choices) {
@@ -69,19 +61,19 @@ const GPTSearchInput = () => {
   };
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="pt-[40%] md:pt-[10%] flex justify-center">
       <form
-        className="w-1/2 bg-black grid grid-cols-12"
+        className="w-full md:w-1/2 bg-black grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
           type="text"
-          className="col-span-9 py-2 p-4 m-2"
+          className="col-span-9 py-2 p-4 m-2 rounded-sm md:rounded-lg"
           placeholder={lang[languageKey].gptSearchPlaceholder}
         />
         <button
-          className=" col-span-3 py-2 p-4 m-2 bg-red-700 text-white rounded-lg"
+          className=" col-span-3 py-2 p-4 m-2 bg-red-700 text-white rounded-sm md:rounded-lg"
           onClick={handleSearchGPTClick}
         >
           {lang[languageKey].search}
