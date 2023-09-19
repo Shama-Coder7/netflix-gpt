@@ -20,11 +20,10 @@ const usePopularMovies = () => {
     );
 
     const json = await data.json();
-    // console.log("popular",json.results);
+    console.log("popular",json.results);
     dispatch(addPopularMovies(json.results)); // setting all the movies which are stored on pur movie slice
   };
 
-  getPopularMovies();
 };
 
 export default usePopularMovies;

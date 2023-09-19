@@ -9,6 +9,9 @@ const useUpcomingMovies = () => {
 
   const upcomingMovies = useSelector((store) => store.movies.upcomingMovies);
 
+  useEffect(() => {
+    !upcomingMovies && getUpcomingMovies();
+  }, []);
 
   const getUpcomingMovies = async () => {
     const data = await fetch(
@@ -17,13 +20,9 @@ const useUpcomingMovies = () => {
     );
 
     const json = await data.json();
-    console.log('upcoming-movies', json.results);
-    dispatch(addUpcomingMovies(json.results)); // setting all the movies which are stored on pur movie slice
+    console.log('upcoming-movies', json?.results);
+    dispatch(addUpcomingMovies(json?.results)); // setting all the movies which are stored on pur movie slice
   };
-
-  useEffect(() => {
-    !upcomingMovies && getUpcomingMovies();
-  }, []);
 };
 
 export default useUpcomingMovies;
